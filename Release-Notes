@@ -1,0 +1,33 @@
+ArubaOS-CX - 10.00.0002 is the first software release for Aruba 8400. 
+The key innovations in ArubaOS-CX are its micro-services style modular
+architecture, REST APIs, Python scripting capabilities and the 
+Aruba Network Analytics Engine (NAE).
+
+List of intelligent NAE agents introduced in 10.00.0002:
+
+      1. interface_state_stats_monitor.1.0.py - 
+		Interface Link state and Statistics Monitoring Agent
+      2. ospfv2_interface_state_flaps_impact_analysis_monitor.1.0.py - 
+		OSPFv2 Interface State Flaps Impact Analysis Monitoring Policy
+      3. ospfv2_interface_state_flaps_monitor.1.0.py - 
+		OSPFv2 Interface State Flaps Agent for all interfaces in a 
+		given area
+      4. interface_link_flap_monitor.1.0.py - 
+		Interface Link Flap Monitoring Agent
+      5. interface_link_state_monitor.1.0.py - 
+		Interface Link Status Monitoring Agent
+      6. port_admin_state_monitor.1.0.py - 
+		Port Admin Status Monitoring Agent
+      7. stp_bpdu_tcn_rate_monitor.1.0.py - 
+		Agent to Monitor Rate of change of  Topology Change 
+		Notification, BPDU Dropped and Received on Ports and STP 
+		Packets dropped at CPU
+      8. daemon_resource_monitor.1.0.py - 
+		Top 5 System daemon CPU & Memory utilization monitoring agent
+
+Known Issues
+    None
+    
+Important Fixes
+    Not Applicable
+
