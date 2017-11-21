@@ -23,10 +23,10 @@ PROXY_DICT = {'http': None, 'https': None}
 URI_PREFIX = '/rest/v1/system/vrfs/'
 
 Manifest = {
-    'Name': 'ospfv2_interface_state_flap_impact_analysis',
+    'Name': 'ospfv2_interface_state_flaps_impact_monitor',
     'Description':
         'OSPFv2 Interface State Flaps Impact Analysis Monitoring Policy',
-    'Version': '0.1',
+    'Version': '1.0',
     'Author': 'Aruba Networks'
 }
 

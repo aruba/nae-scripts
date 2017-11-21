@@ -1,5 +1,5 @@
-#### Script File Name: 
-ospfv2\_interface\_state\_flaps\_impact\_analysis\_monitor.1.0.py
+#### Script File Name:
+ospfv2\_interface\_state\_flaps\_impact\_monitor.1.0.py
 
 Script Functionality Guide for Monitoring OSPFv2 Interface State Flaps
 Impact Analysis
@@ -100,52 +100,38 @@ A.  This script specifies monitoring condition as following:
 
     3.  OSPFv2 interface state machine change from waiting to bdr
 
-    4.  OSPFv2 interface state machine change from point to point to bdr
+    4.  OSPFv2 interface state change from bdr to dr
 
-    5.  OSPFv2 interface state change from bdr to dr
+    5.  OSPFv2 interface state machine change from dr to down
 
-    6.  OSPFv2 interface state change from bdr to point to point
+    6.  OSPFv2 interface state machine change from down to dr
 
-    7.  OSPFv2 interface state change from bdr to dr other
+    7. OSPFv2 interface state machine change from waiting to dr
 
-    8.  OSPFv2 interface state machine change from dr to down
+    8. OSPFv2 interface state machine change from dr other to down
 
-    9.  OSPFv2 interface state machine change from down to dr
+    9. OSPFv2 interface state machine change from down to dr other
 
-    10. OSPFv2 interface state machine change from waiting to dr
+    10. OSPFv2 interface state machine change from waiting to dr other
 
-    11. OSPFv2 interface state machine change from point to point to dr
+    11. OSPFv2 interface state machine change from point to point
 
-    12. OSPFv2 interface state change from dr to bdr
+    12. OSPFv2 interface state change from dr other to bdr
 
-    13. OSPFv2 interface state change from dr to point to point
+    13. OSPFv2 interface state change from dr other to point to point
 
-    14. OSPFv2 interface state change from dr to dr other
+    14. OSPFv2 interface state change from dr other to dr
 
-    15. OSPFv2 interface state machine change from dr other to down
+    15. OSPFv2 interface state change from bdr to waiting
 
-    16. OSPFv2 interface state machine change from down to dr other
+    16. OSPFv2 interface state change from dr other to waiting
 
-    17. OSPFv2 interface state machine change from waiting to dr other
-
-    18. OSPFv2 interface state machine change from point to point
-
-    19. OSPFv2 interface state change from dr other to bdr
-
-    20. OSPFv2 interface state change from dr other to point to point
-
-    21. OSPFv2 interface state change from dr other to dr
-
-    22. OSPFv2 interface state change from bdr to waiting
-
-    23. OSPFv2 interface state change from dr other to waiting
-
-    24. OSPFv2 interface state change from dr other to waiting
+    17. OSPFv2 interface state change from dr other to waiting
 
 A.  This script specifies monitoring action as following:
 
     1.  Normal alert - The monitoring condition specified above numbered
-        2, 3, 4, 5, 7, 9, 10, 11, 12, 14, 16, 17, 18, 19 and 21 when
+        2, 3, 4, 6, 7, 9, 10, 11, 12 and 14 when
         hits, the monitoring action 'normal' is taken. In this action
         script is marked as Normal and CLI show ip ospf interface is
         executed and detailed impact analysis of lost/found OSPFv2
@@ -153,7 +139,7 @@ A.  This script specifies monitoring action as following:
         shown as custom report in the monitoring agent UI
 
     2.  Critical alert – The monitoring condition specified above
-        numbered 1, 6, 8, 13, 15, 20, 22, 23, and 24 when hits, the
+        numbered 1, 5, 8, 13, 15, 16, and 17 when hits, the
         monitoring action 'critical' is taken. In this action script
         is marked as critical and CLI show ip ospf interface is
         executed and detailed impact analysis of lost/found OSPFv2
