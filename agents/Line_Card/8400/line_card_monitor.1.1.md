@@ -3,8 +3,11 @@
 ### SUMMARY
 The intent of this script is to monitor health of all the Line cards (LC) on the switch. Agent monitors line card state, CPU and Memory utilization. In case, any line card is down, agent collects corresponding line card logs and executes switch CLI commands which help to know the cause of line card failure.
 
-### MINIMUM SOFTWARE VERSION REQUIRED 
-ArubaOS-CX XL/TL.10.01.000X
+### PLATFORM(S) SUPPORTED
+8400x
+
+### SOFTWARE VERSION REQUIREMENTS
+ArubaOS-CX 10.01.000X
 
 ### SCRIPT DESCRIPTION
 The sections of this script are 'Manifest', 'ParameterDefinitions' and the 'Policy Constructor'.
@@ -40,10 +43,8 @@ The python code defines following monitor(s) (Resource URI), condition(s) and ac
 
                          -  Shell : 'ovs-appctl -t hpe-cardd fastlog show lc <lc_number>'
 
-Agent alerts for each and every line card failure (i.e. in down state) on the switch. Also Agent generates clears earlier alert in case line card comes back from 'down' state. 
+Agent alerts for each and every line card failure (i.e. in down state) on the switch. Also Agent generates clears earlier alert in case line card comes back from 'down' state.
 
-### PLATFORM(S) TESTED
-8400x
 
 ### LICENSES
 Apache License, Version 2.0  

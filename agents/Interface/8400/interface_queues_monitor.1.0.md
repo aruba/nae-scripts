@@ -1,25 +1,26 @@
 #### Script File Name: interface\_queues\_monitor.1.0.py
 
 ### SUMMARY
-The intent of this script is to monitor egress queues of an interface including the counters of Tx bytes, Tx packets & Tx errors. 8400 is an aggregation/core switch, and it is necessary to create an easy monitoring mechanism on certain critical interfaces so that the time series chart serves for visualization of queue congestion and packet loss/error. 
+The intent of this script is to monitor egress queues of an interface including the counters of Tx bytes, Tx packets & Tx errors. 8400 is an aggregation/core switch, and it is necessary to create an easy monitoring mechanism on certain critical interfaces so that the time series chart serves for visualization of queue congestion and packet loss/error.
 
-### MINIMUM SOFTWARE VERSION REQUIRED 
-ArubaOS-CX XL/TL.10.01.0001
+### PLATFORM(S) SUPPORTED
+8400X
+8320
 
-### CONFIGURATION NOTES
-The main components of Interface Queue monitor script are Manifest, Parameter Definition and the Policy Constructor. 
+### SOFTWARE VERSION REQUIREMENTS
+ArubaOS-CX 10.01.0001
 
-The 'Manifest' defines the unique name for this script. 
+### SCRIPT DESCRIPTION
+The main components of Interface Queue monitor script are Manifest, Parameter Definition and the Policy Constructor.
 
-'ParameterDefinitions' has "interface_id" as the parameter intended to take the input from the user for monitoring the respective Interface. The default value is set to "1/1/1". 
+The 'Manifest' defines the unique name for this script.
 
-The script handles the main logic for monitoring the egress queues of an interface. 
+'ParameterDefinitions' has "interface_id" as the parameter intended to take the input from the user for monitoring the respective Interface. The default value is set to "1/1/1".
+
+The script handles the main logic for monitoring the egress queues of an interface.
 
 The script does not have any Rules or Thresholds since they are fully trusted to be handled by the switch inherently.
 
-### PLATFORM(S) TESTED
-8400X
-8320
 
 ### LICENSES
 Apache License, Version 2.0

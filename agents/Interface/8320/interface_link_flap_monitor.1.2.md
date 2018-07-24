@@ -7,14 +7,18 @@ This script monitors the rate of link resets happening over the defined time int
 - Agent status is set to Critical.
 - Syslog messages are written indicating the link flap happening on the particular interface.
 
-Critical state of the script agent indicates the link flap happening on an interface. And by looking at the syslog message or alert details user can figure out on which exact interface the flap is happening. 
+Critical state of the script agent indicates the link flap happening on an interface. And by looking at the syslog message or alert details user can figure out on which exact interface the flap is happening.
 
 In this script, clear_condition is added to prevent numerous alerts that can occur when link flap happening and the clear_action is added to reset the alert status when the condition is cleared.
 
-### MINIMUM SOFTWARE VERSION REQUIRED 
-ArubaOS-CX XL/TL.10.01.0001
+### PLATFORM(S) SUPPORTED
+8400X
+8320
 
-### CONFIGURATION NOTES
+### SOFTWARE VERSION REQUIREMENTS
+ArubaOS-CX 10.01.0001
+
+### SCRIPT DESCRIPTION
 The important section of interface link flap monitor script are Manifest, Parameter Definition and the actual python code.
 
 The 'Manifest' defines the unique name for this script and the 'ParameterDefinitions' section defines the following script parameters:
@@ -31,9 +35,6 @@ If the rate of 'link_resets' count over the time interval 'rate_interval' (speci
 
 And when the rate of 'link_resets' count over the time interval 'rate_interval' falls below the specified threshold 'link_flap_threshold' then the agent status is set back to Normal.
 
-### PLATFORM(S) TESTED
-8400X
-8320
 
 ### LICENSES
 Apache License, Version 2.0

@@ -3,8 +3,8 @@
 ### SUMMARY
 This script monitors VRRPv2 statistics related to state transition count for the given VRRP ID and interface in the system. The VRRP can be in one of the following states: Init, Master, Back up. The interface name can be a physical, van or lag interface.
 
-### MINIMUM SOFTWARE VERSION REQUIRED
-ArubaOS-CXXL/TL.10.01.000X
+### SOFTWARE VERSION REQUIREMENTS
+ArubaOS-CX 10.01.000X
 
 ### CONFIGURATION NOTES
 The main components of the script are Manifest, Parameter Definitions and the Policy Constructor.   
