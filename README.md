@@ -26,18 +26,7 @@ as charts on the Web UI.
 ### Contents
 
 ------------------------------------------------------------------------------
-- [Repository Links](#repo_links)
 - [Repository Structure](#repo_structure)
-
-------------------------------------------------------------------------------
-
-<a id='repo_links'></a>
-#### Repository Links:
-
-------------------------------------------------------------------------------
-The GitHub repository will be a part of the “aruba” organization on GitHub: 
-
-https://github.com/aruba/nae-scripts
 
 ------------------------------------------------------------------------------
 
@@ -51,25 +40,16 @@ Structure of the “nae-scripts” repository is as shown below
 	├── 8400
 	├── 832X
 	├── genericx86
-	├── LICENSE.md
 	├── README.md
-	└── Release-Notes
 </pre>
 
-Inside each folder, you will find the actual script and the documentation 
-around that script: 
+Inside each folder, the user will find another folder that contains scripts and 
+documentation that are published (or available to download): 
 <pre>
 	├── interface_state_stats_monitor.1.0.md
 	└── interface_state_stats_monitor.1.0.py
 </pre>
 
-
-- #### license: 
-	Apache 2.0 license file
-
 - #### README:
 	How to use this repository 
 
-- #### Release-Notes:
-	version by version notes for agents on the repository. 
-	Known issues, Fixed issues etc.
