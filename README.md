@@ -42,6 +42,8 @@ Structure of the “nae-scripts” repository is as shown below
 	├── genericx86
 	├── README.md
 </pre>
+The repository structure is defined by grouping the NAE Script and their documentaiton 
+files on directories representing the device platform and topics, as follows:
 
 Inside each folder, the user will find another folder that contains scripts and 
 documentation that are published (or available to download): 
@@ -50,6 +52,20 @@ documentation that are published (or available to download):
 	└── interface_state_stats_monitor.1.0.py
 </pre>
 
+`<platform>/<topic>/<script-name>.<version>(.py|.md)`
+
 - #### README:
 	How to use this repository 
+	Where:
+ 
+  * `<platform>` defines the device hardware platform (e.g. 8400, 832X, etc.)
+  * `<topic>` defines a context for the scripts:
+    * ase: The official NAE Scripts curated by Aruba Networks
+    * ondevice: NAE Scripts that comes installed with the device
+    * examples: NAE Scripts that could be used as examples during the development of other NAE Scripts.
+  * `<script-name>` usually says what device feature the script is related to (e.g. `power_supply_monitor.1.0.py`)
+  * `<version>` the version of the NAE Script
+  * `.py` the NAE Script source code that can be installed on a device
+  * `.md` the documentation about a given NAE Script
+
 
