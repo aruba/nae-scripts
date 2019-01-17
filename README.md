@@ -1,8 +1,5 @@
-------------------------------------------------------------------------------
+# Overview
 
-### Overview
-
-------------------------------------------------------------------------------
 
 Aruba Network Analytics Engine Scripts are troubleshooting solutions that 
 allow the administrator to monitor data of a specific resource
@@ -21,19 +18,8 @@ data collection will begin, based on the data that is monitored. The
 administrator views Time Series data associated with Network Analytics Agents
 as charts on the Web UI.
 
-------------------------------------------------------------------------------
+# Repository Structure:
 
-### Contents
-
-------------------------------------------------------------------------------
-- [Repository Structure](#repo_structure)
-
-------------------------------------------------------------------------------
-
-<a id='repo_structure'></a>
-#### Repository Structure:
-
-------------------------------------------------------------------------------
 Structure of the “nae-scripts” repository is as shown below
 <pre>
 	├── common
@@ -54,9 +40,7 @@ documentation that are published (or available to download):
 
 `<platform>/<topic>/<script-name>.<version>(.py|.md)`
 
-- #### README:
-	How to use this repository 
-	Where:
+Where:
  
   * `<platform>` defines the device hardware platform (e.g. 8400, 832X, etc.)
   * `<topic>` defines a context for the scripts:
