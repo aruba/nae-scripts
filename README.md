@@ -1,12 +1,12 @@
 # Overview
 
 
-Aruba Network Analytics Engine Scripts are troubleshooting solutions that 
+Aruba Network Analytics Engine (NAE) Scripts are troubleshooting solutions that 
 allow the administrator to monitor data of a specific resource
 (protocol/system) and capture time series snapshot of various possible
 states that this resource can transition to.
 
-The administrator creates scripts that are based on NAE framework. A script 
+The administrator creates scripts that are based on the NAE framework. A script 
 indicates what data should be monitored, specifies conditions which act as 
 triggers on the monitored data, specifies pre-defined actions 
 (e.g. syslog, cli commands, etc) that can be executed when the condition is
@@ -28,7 +28,7 @@ Structure of the “nae-scripts” repository is as shown below
 	├── genericx86
 	├── README.md
 </pre>
-The repository structure is defined by grouping the NAE Script and their documentaiton 
+The repository structure is defined by grouping the NAE Script and their documentation 
 files on directories representing the device platform and topics, as follows:
 
 Inside each folder, the user will find another folder that contains scripts and 
