@@ -109,7 +109,7 @@ class Agent(NAE):
 
     def __init__(self):
 
-        mm1_cpu_uri = '/rest/v1/system/subsystems/management_module/1%2F5?' \
+        mm1_cpu_uri = '/rest/v1/system/subsystems/management_module/1%2F1?' \
                       'attributes=resource_utilization.cpu'
 
         self.mm1_cpu_mon = Monitor(
@@ -179,7 +179,7 @@ class Agent(NAE):
              self.params['long_term_normal_threshold']])
         self.r6.action(self.action_cpu_normal_critical)
 
-        mm1_mem_uri = '/rest/v1/system/subsystems/management_module/1%2F5?' \
+        mm1_mem_uri = '/rest/v1/system/subsystems/management_module/1%2F1?' \
                       'attributes=resource_utilization.memory'
         self.mm1_mem_mon = Monitor(
             mm1_mem_uri, 'MM1 Memory raw (CPU/Memory utilization in %)')
@@ -241,7 +241,7 @@ class Agent(NAE):
              self.params['long_term_normal_threshold']])
         self.r12.action(self.action_memory_normal_critical)
 
-        mm2_cpu_uri = '/rest/v1/system/subsystems/management_module/1%2F6?' \
+        mm2_cpu_uri = '/rest/v1/system/subsystems/management_module/1%2F2?' \
                       'attributes=resource_utilization.cpu'
 
         self.mm2_cpu_mon = Monitor(
@@ -304,7 +304,7 @@ class Agent(NAE):
              self.params['long_term_normal_threshold']])
         self.r18.action(self.action_cpu_normal_critical)
 
-        mm2_mem_uri = '/rest/v1/system/subsystems/management_module/1%2F6?' \
+        mm2_mem_uri = '/rest/v1/system/subsystems/management_module/1%2F2?' \
                       'attributes=resource_utilization.memory'
         self.mm2_mem_mon = Monitor(
             mm2_mem_uri, 'MM2 Memory raw (CPU/Memory utilization in %)')
@@ -366,16 +366,10 @@ class Agent(NAE):
              self.params['long_term_normal_threshold']])
         self.r24.action(self.action_memory_normal_critical)
 
-        mm1_status_uri = '/rest/v1/system/redundant_managements/' \
-                         'Mgmt%20Module%201?attributes=mgmt_role'
-        self.mm1_status_mon = Monitor(mm1_status_uri,
-                                      'MM1 status (Management Module status)')
-
-        mm2_status_uri = '/rest/v1/system/redundant_managements/' \
-                         'Mgmt%20Module%202?attributes=mgmt_role'
-        self.mm2_status_mon = Monitor(mm2_status_uri,
-                                      'MM2 status (Management Module status)')
-
+        mm_status_uri = '/rest/v1/system/redundant_managements/' \
+            '*?attributes=mgmt_role'
+        self.mm_status_mon = Monitor(mm_status_uri,
+                                     'MM status (Management Module status)')
         self.variables['cpu_minor'] = '0'
         self.variables['cpu_major'] = '0'
         self.variables['cpu_critical'] = '0'
@@ -604,7 +598,7 @@ class Agent(NAE):
     def get_mgmt_module(self, event_label):
         _, mgmt_module = event_label.split(',')[0].split('=')
         ret_mgmt_module = ''
-        if mgmt_module == 'management_module_1/5':
+        if mgmt_module == 'management_module_1/1':
             ret_mgmt_module = 'MM1'
         else:
             ret_mgmt_module = 'MM2'

@@ -16,7 +16,7 @@
 # under the License.
 
 Manifest = {
-    'Name': 'power_supply_monitors',
+    'Name': 'power_supply_monitor',
     'Description': 'System Power Supply monitoring agent',
     'Version': '2.1',
     'Author': 'Aruba Networks'

@@ -24,17 +24,11 @@ Manifest = {
 }
 
 ParameterDefinitions = {
-    'sensor_subsystem_type': {
-        'Name': 'Sensor Subsystem',
-        'Description': 'Temp Sensor Subsystem Type to Monitor',
-        'Type': 'string',
-        'Default': 'management_module'
-    },
     'sensor_name': {
         'Name': 'Sensor Name',
         'Description': 'Temp Sensor to Monitor',
         'Type': 'string',
-        'Default': '1/6-CPU_TZ'
+        'Default': 'LC1-2'
     }
 }
 
@@ -43,38 +37,44 @@ class Agent(NAE):
 
     def __init__(self):
         self.variables['critical'] = '0'
-        # extract temp_sensor subsystem name from sensor name
-        subname = str(self.params['sensor_name'])[:3].replace('/', '%2F')
-        subname = subname.replace('-CPU_TZ', '')
-        uri1 = '/rest/v1/system/subsystems/{}/' \
-            + subname + '/temp_sensors/{}?' \
+
+        uri1 = '/rest/v1/system/subsystems/line_card/1%2F1/temp_sensors/{}?' \
             'attributes=temperature'
-        self.m1 = Monitor(uri1, 'Temp Sensor Value', [
-            self.params['sensor_subsystem_type'],
-            self.params['sensor_name']])
+        self.m1 = Monitor(uri1, 'Monitoring Sensor Temperature Value',
+                          [self.params['sensor_name']])
 
-        uri2 = '/rest/v1/system/subsystems/{}/' \
-            + subname + '/temp_sensors/{}?' \
+        uri2 = '/rest/v1/system/subsystems/line_card/1%2F1/temp_sensors/{}?' \
             'attributes=status'
-        self.m2 = Monitor(uri2, 'Temp Sensor Status', [
-            self.params['sensor_subsystem_type'],
-            self.params['sensor_name']])
+        self.m2 = Monitor(uri2, 'Monitoring Temp Sensor Status',
+                          [self.params['sensor_name']])
 
-        self.r1 = Rule('Sensor Status:Uninitialized/Normal')
-        self.r1.condition('{} == "uninitialized"', [self.m2])
+        self.r1 = Rule('Sensor Status:Normal/Min/Max')
+        self.r1.condition('{} == "normal"', [self.m2])
         self.r1.action(self.action_status_normal)
 
-        self.r2 = Rule('Sensor Status:Uninitialized/Normal')
-        self.r2.condition('{} == "normal"', [self.m2])
+        self.r2 = Rule('Sensor Status:Normal/Min/Max')
+        self.r2.condition('{} == "min"', [self.m2])
         self.r2.action(self.action_status_normal)
 
-        self.r3 = Rule('Sensor Status:Critical/Fault')
-        self.r3.condition('{} == "fault"', [self.m2])
-        self.r3.action(self.action_status_critical)
+        self.r3 = Rule('Sensor Status:Normal/Min/Max')
+        self.r3.condition('{} == "max"', [self.m2])
+        self.r3.action(self.action_status_normal)
 
-        self.r4 = Rule('Sensor Status:Critical/Fault')
-        self.r4.condition('{} == "critical"', [self.m2])
+        self.r4 = Rule('Sensor Status:Low_Critical/Critical/Fault/Emergency')
+        self.r4.condition('{} == "low_critical"', [self.m2])
         self.r4.action(self.action_status_critical)
+
+        self.r5 = Rule('Sensor Status:Low_Critical/Critical/Fault/Emergency')
+        self.r5.condition('{} == "critical"', [self.m2])
+        self.r5.action(self.action_status_critical)
+
+        self.r6 = Rule('Sensor Status:Low_Critical/Critical/Fault/Emergency')
+        self.r6.condition('{} == "fault"', [self.m2])
+        self.r6.action(self.action_status_critical)
+
+        self.r7 = Rule('Sensor Status:Low_Critical/Critical/Fault/Emergency')
+        self.r7.condition('{} == "emergency"', [self.m2])
+        self.r7.action(self.action_status_critical)
 
     def action_status_critical(self, event):
         if self.get_alert_level() is None:
