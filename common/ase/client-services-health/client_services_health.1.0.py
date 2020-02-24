@@ -67,7 +67,7 @@ class Agent(NAE):
         self.collect_event_data(event)
         # Update WebUI
         self.logger.debug(
-            "Anomaly Raito: %s, detected on Port: %s" %
+            "Anomaly Ratio: %s, detected on Port: %s" %
             (self.variables['ratio'], self.variables['port']))
         ActionCLI("show dhcp-relay")
         ActionSyslog(
