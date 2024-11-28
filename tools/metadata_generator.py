@@ -1,6 +1,6 @@
 import ast
 from os import listdir
-from os.path import isfile, join
+from os.path import isdir, isfile, join
 import subprocess
 import json
 
@@ -14,6 +14,10 @@ import json
 # - 
 
 SCRIPTS_DIRECTORY = "recommended_scripts/"
+METADATA_GENERATOR_FILENAME = "metadata_generator.py"
+PYTHON_FILENAME_EXTENSION = ".py"
+DIRECTORY_ROOT_PREFIX = "../"
+
 
 def get_last_modified_time(file_path):
     """Gets the last modified time of a file from Git."""
@@ -68,16 +72,29 @@ def parse_variable_dict(dict_object):
         final_value_dict[keys[i]] = values[i]
     return final_value_dict
 
-script_filepath = "../{}".format(SCRIPTS_DIRECTORY)
-filenames = [f for f in listdir(script_filepath) if isfile(join(script_filepath, f))]
+def get_script_list(script_filepath):
+    filename_list = []
+    for f in listdir(script_filepath):
+        path = join(script_filepath, f)
+        if isfile(path):
+            if path.lower().endswith((PYTHON_FILENAME_EXTENSION)):
+                filename_list.append((f, path))
+        elif isdir(path):
+            filename_list += get_script_list(path)
+        else:
+            print("Error getting filename for path {}".format(path))
+    return filename_list
+
+script_filepath = join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY)
+script_list = get_script_list(script_filepath)
 
 metadata_object = {"scripts": {}}
 
-for filename in filenames:
-    if filename in ["metadata.json", "metadata_generator.py"]:
+for (filename, filepath) in script_list:
+    if filename in [METADATA_GENERATOR_FILENAME]:
         continue
-    complete_filepath = "{}{}".format(script_filepath, filename)
-    reader = open(complete_filepath)
+    filepath_from_directory_root = filepath.replace(DIRECTORY_ROOT_PREFIX, "", 1)
+    reader = open(filepath)
     dict_object = get_variable_value(reader.read(), "Manifest")
     manifest_object = parse_variable_dict(dict_object)
     script_object = {}
@@ -92,8 +109,8 @@ for filename in filenames:
     if 'AOSCXVersionMax' in manifest_object:
         script_object["minimum_firmware"] = manifest_object["AOSCXVersionMax"]
     script_object["description"] = manifest_object["Description"]
-    script_object["last_modified"] = get_last_modified_time(complete_filepath)
-    script_object["location"] = "{}{}".format(SCRIPTS_DIRECTORY, filename)
+    script_object["last_modified"] = get_last_modified_time(filepath)
+    script_object["location"] = filepath_from_directory_root
     metadata_object['scripts'][filename] = script_object
 
 with open('metadata.json', 'w') as outfile:
