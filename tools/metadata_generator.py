@@ -4,14 +4,8 @@ from os.path import isdir, isfile, join
 import subprocess
 import json
 
-# TODO:
-# - Generate high-level and script-level READMEs
-# - Get description for high-level README
-# - Add long description to scripts
-# - Get long description for script-level README
-
 SCRIPTS_DIRECTORY = "recommended_scripts/"
-HIGH_LEVEL_README_FILENAME = "README.md"
+README_FILENAME = "README.md"
 METADATA_GENERATOR_FILENAME = "metadata_generator.py"
 PYTHON_FILENAME_EXTENSION = ".py"
 DIRECTORY_ROOT_PREFIX = "../"
@@ -42,7 +36,7 @@ def get_last_modified_time(file_path):
         print(f"Error: {e}")
         return None
 
-def get_variable_value(code, variable_name):
+def get_variable_value(code, variable_name, required):
     tree = ast.parse(code)
 
     class ValueFinder(ast.NodeVisitor):
@@ -57,6 +51,12 @@ def get_variable_value(code, variable_name):
 
     finder = ValueFinder()
     finder.visit(tree)
+    if not hasattr(finder, "value"):
+        if required:
+            print("Error: required variable {} was not found".format(variable_name, code))
+            return None
+        else:
+            return None
     return finder.value
 
 def parse_variable_dict(dict_object):
@@ -103,7 +103,14 @@ for (filename, filepath) in script_list:
         continue
     filepath_from_directory_root = filepath.replace(DIRECTORY_ROOT_PREFIX, "", 1)
     reader = open(filepath)
-    dict_object = get_variable_value(reader.read(), "Manifest")
+    read_info = reader.read()
+    dict_object = get_variable_value(read_info, "Manifest", required=True)
+    long_description = get_variable_value(read_info, "LONG_DESCRIPTION", required=False)
+    if long_description is not None:
+        # write long description to script-level README
+        readme_filepath = join(filepath.replace(filename, "", 1), README_FILENAME)
+        with open(readme_filepath, 'w') as outfile:
+            outfile.write(long_description)
     manifest_object = parse_variable_dict(dict_object)
     script_object = {}
     script_name_with_version = "{}.{}".format(manifest_object["Name"], manifest_object["Version"])
@@ -124,7 +131,7 @@ with open('metadata.json', 'w') as outfile:
     json.dump(metadata_object, outfile, indent=4)
 
 # Create high-level README file
-with open(join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY, HIGH_LEVEL_README_FILENAME), 'w') as outfile:
+with open(join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY, README_FILENAME), 'w') as outfile:
     outfile.write(HIGH_LEVEL_README_HEADING)
     for script_name in high_level_description_object:
         outfile.write("### {}:\n{}\n\n".format(script_name, high_level_description_object[script_name]))

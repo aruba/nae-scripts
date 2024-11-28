@@ -157,7 +157,7 @@
             "minimum_firmware": "10.08",
             "maximum_firmware": null,
             "description": "Monitoring number of ARP requests coming to the switch CPU",
-            "last_modified": "11/27/24 21:45:04",
+            "last_modified": "11/27/24 23:42:54",
             "location": "recommended_scripts/arp_requests_monitor/arp_requests_monitor.py"
         },
         "neighbors_count_monitor.1.1.py": {
@@ -395,7 +395,7 @@
             "minimum_firmware": "10.08",
             "maximum_firmware": null,
             "description": "Network Analytics agent script to monitor application health",
-            "last_modified": "11/27/24 21:45:04",
+            "last_modified": "11/27/24 23:42:54",
             "location": "recommended_scripts/application_health_monitor/application_health_monitor.py"
         }
     }
