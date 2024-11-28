@@ -7,14 +7,23 @@ import json
 # TODO:
 # - Generate high-level and script-level READMEs
 # - Get description for high-level README
-# - Create directories for each script
 # - Add long description to scripts
 # - Get long description for script-level README
 
 SCRIPTS_DIRECTORY = "recommended_scripts/"
+HIGH_LEVEL_README_FILENAME = "README.md"
 METADATA_GENERATOR_FILENAME = "metadata_generator.py"
 PYTHON_FILENAME_EXTENSION = ".py"
 DIRECTORY_ROOT_PREFIX = "../"
+
+HIGH_LEVEL_README_HEADING = '''\
+# Recommended NAE Scripts\n
+These are the scripts recommended by HPE Aruba Networks for customers to use on their switches. \
+These scripts have been tested and determined to add value.  Below is a list of all of the scripts with a short description. \
+You can click on each script directory to see all available versions (different versions have different firwmare support), as \
+well as a README with a more detailed description of each script.  All of these scripts can also be seen in the switch Web UI \
+NAE script portal.\n
+'''
 
 
 def get_last_modified_time(file_path):
@@ -87,6 +96,7 @@ script_filepath = join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY)
 script_list = get_script_list(script_filepath)
 
 metadata_object = {"scripts": {}}
+high_level_description_object = {}
 
 for (filename, filepath) in script_list:
     if filename in [METADATA_GENERATOR_FILENAME]:
@@ -107,6 +117,14 @@ for (filename, filepath) in script_list:
     script_object["last_modified"] = get_last_modified_time(filepath)
     script_object["location"] = filepath_from_directory_root
     metadata_object['scripts'][filename] = script_object
+    high_level_description_object[manifest_object["Name"]] = manifest_object["Description"]
 
+# Create metadata file
 with open('metadata.json', 'w') as outfile:
     json.dump(metadata_object, outfile, indent=4)
+
+# Create high-level README file
+with open(join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY, HIGH_LEVEL_README_FILENAME), 'w') as outfile:
+    outfile.write(HIGH_LEVEL_README_HEADING)
+    for script_name in high_level_description_object:
+        outfile.write("### {}:\n{}\n\n".format(script_name, high_level_description_object[script_name]))
