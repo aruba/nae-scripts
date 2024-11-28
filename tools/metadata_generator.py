@@ -4,12 +4,21 @@ from os.path import isfile, join
 import subprocess
 import json
 
+# TODO:
+# - Generate high-level and script-level READMEs
+# - Get description for high-level README
+# - Create directories for each script
+# - Update to allow going into directories
+# - Add long description to scripts
+# - Get long description for script-level README
+# - 
+
 SCRIPTS_DIRECTORY = "recommended_scripts/"
 
 def get_last_modified_time(file_path):
     """Gets the last modified time of a file from Git."""
     try:
-        result = subprocess.run(['git', 'log', '-1', '--format="%ad"', '--date=iso', file_path], 
+        result = subprocess.run(['git', 'log', '-1', '--format="%ad"', '--date=format-local:"%m/%d/%y %H:%M:%S"', file_path], 
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
         if result.returncode == 0:
@@ -67,7 +76,8 @@ metadata_object = {"scripts": {}}
 for filename in filenames:
     if filename in ["metadata.json", "metadata_generator.py"]:
         continue
-    reader = open("{}{}".format(script_filepath, filename))
+    complete_filepath = "{}{}".format(script_filepath, filename)
+    reader = open(complete_filepath)
     dict_object = get_variable_value(reader.read(), "Manifest")
     manifest_object = parse_variable_dict(dict_object)
     script_object = {}
@@ -82,8 +92,7 @@ for filename in filenames:
     if 'AOSCXVersionMax' in manifest_object:
         script_object["minimum_firmware"] = manifest_object["AOSCXVersionMax"]
     script_object["description"] = manifest_object["Description"]
-    # script_object["last_modified"] = get_last_modified_time(filename)
-    script_object["last_modified"] = "sample_time"
+    script_object["last_modified"] = get_last_modified_time(complete_filepath)
     script_object["location"] = "{}{}".format(SCRIPTS_DIRECTORY, filename)
     metadata_object['scripts'][filename] = script_object
 
