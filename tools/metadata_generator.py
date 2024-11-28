@@ -8,10 +8,8 @@ import json
 # - Generate high-level and script-level READMEs
 # - Get description for high-level README
 # - Create directories for each script
-# - Update to allow going into directories
 # - Add long description to scripts
 # - Get long description for script-level README
-# - 
 
 SCRIPTS_DIRECTORY = "recommended_scripts/"
 METADATA_GENERATOR_FILENAME = "metadata_generator.py"
@@ -99,10 +97,7 @@ for (filename, filepath) in script_list:
     manifest_object = parse_variable_dict(dict_object)
     script_object = {}
     script_name_with_version = "{}.{}".format(manifest_object["Name"], manifest_object["Version"])
-    script_object["script_name"] = manifest_object["Name"]
-    script_object["version"] = manifest_object["Version"]
     script_object["script_name_with_version"] = script_name_with_version
-    script_object["tags"] = manifest_object["AOSCXPlatformList"]
     script_object["supported_platforms"] = manifest_object["AOSCXPlatformList"]
     script_object["minimum_firmware"] = manifest_object["AOSCXVersionMin"]
     script_object["maximum_firmware"] = None
