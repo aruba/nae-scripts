@@ -24,7 +24,7 @@ This script monitors the reachability between two devices given the IP-SLA sessi
 System Power Supply monitoring agent
 
 ### configuration_change_tftp:
-Agent to copy the running configuration to a TFTP serverwhenever a configuration change occurs.
+Agent to copy the running configuration to a TFTP server whenever a configuration change occurs.
 
 ### broadcast_storm_monitor:
 This script monitors for broadcast packets storm on an interface and shuts down the interface if the interface shut down option is enabled.

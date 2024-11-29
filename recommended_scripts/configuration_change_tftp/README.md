@@ -1,6 +1,6 @@
 ## Summary
 
-Agent to copy the running configuration to a TFTP serverwhenever a configuration change occurs.
+Agent to copy the running configuration to a TFTP server whenever a configuration change occurs.
 
 ## Supported Software Versions
 

@@ -111,8 +111,8 @@
             ],
             "minimum_firmware": "10.08",
             "maximum_firmware": null,
-            "description": "Agent to copy the running configuration to a TFTP serverwhenever a configuration change occurs.",
-            "last_modified": "11/27/24 21:45:04",
+            "description": "Agent to copy the running configuration to a TFTP server whenever a configuration change occurs.",
+            "last_modified": "11/28/24 22:35:00",
             "location": "recommended_scripts/configuration_change_tftp/configuration_change_tftp.py"
         },
         "broadcast_storm_monitor.py": {

@@ -70,7 +70,7 @@ from re import sub
 
 Manifest = {
     'Name': 'configuration_change_tftp',
-    'Description': 'Agent to copy the running configuration to a TFTP server'
+    'Description': 'Agent to copy the running configuration to a TFTP server '
                    'whenever a configuration change occurs.',
     'Version': '2.0',
     'Author': 'HPE Aruba Networking',
