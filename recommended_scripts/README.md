@@ -2,7 +2,7 @@
 
 These are the scripts recommended by HPE Aruba Networks for customers to use on their switches. These scripts have been tested and determined to add value.  Below is a list of all of the scripts with a short description. You can click on each script directory to see all available versions (different versions have different firwmare support), as well as a README with a more detailed description of each script.  All of these scripts can also be seen in the switch Web UI NAE script portal.
 
-### CoPP_Policy_Monitor:
+### copp:
 This script monitors the CoPP (COntrol Plane Policing) policy configured on the switch. Traffic destined to the switch dropped by CoPP due to a high traffic rate is counted as traffic dropped and traffic allowed to reach the switch control plane will be counted as traffic allowed. Alerts are generated when these rates exceed their respective thresholds. The thresholds are based on the the CoPP Class rates and the values entered by the user as parameters.
 
 ### lag_health_monitor:
@@ -38,9 +38,6 @@ Monitoring number of ARP requests coming to the switch CPU
 ### neighbors_count_monitor:
 Agent to monitor number of neighbors learnt using ARP
 
-### hardware_device_health_monitor:
-This script monitors the overall hardware device health.
-
 ### vsf_health_monitor:
 This script monitors the role, status, cpu and memory usage, stack_split_state and topology type of VSF Stack
 
@@ -50,16 +47,13 @@ VSX Health monitoring
 ### software_device_health_monitor:
 This script monitors overall software device health.
 
-### EVPN_VXLAN_Health_Monitor:
+### evpn_vxlan_health:
 Agent for monitoring EVPN and VxLAN health
 
 ### topdesk_configuration_change_monitor:
 Agent to alert user when configuration changes and show the system info and diff of configuration changes. An incident is created in TOPdesk, with the diff of configuration changes and other details.
 
-### configuration_change_service_now:
-Agent to alert user when configuration changes and show the system info and diff of configuration changes. A ticket is created in Incident table of ServiceNow, with the diff of configuration changes and other details.
-
-### ipsla_threshold:
+### ipsla:
 Monitor particular value/aggregate value of aSLA test and specify shell command to run as action
 
 ### configuration_change_email:
@@ -67,6 +61,9 @@ Agent to alert user when configuration changes and show the system info and diff
 
 ### client_services_health:
 Client Service Health for Radius, DNS and DHCP
+
+### hardware_device_health_monitor:
+This script monitors the overall hardware device health.
 
 ### route_count_monitor:
 Monitors the route count on the switch

@@ -18,7 +18,7 @@ import json
 import time
 
 Manifest = {
-    'Name': 'ipsla_threshold',
+    'Name': 'ipsla',
     'Description': 'Monitor particular value/aggregate value of a'
                    'SLA test and specify shell command to run as action',
     'Version': '2.1',

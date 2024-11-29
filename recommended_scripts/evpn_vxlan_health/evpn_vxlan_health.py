@@ -131,7 +131,7 @@ import json
 from time import (sleep, clock_gettime, CLOCK_PROCESS_CPUTIME_ID)
 
 Manifest = {
-    'Name': 'EVPN_VXLAN_Health_Monitor',
+    'Name': 'evpn_vxlan_health',
     'Description': 'Agent for monitoring EVPN and VxLAN health',
     'Version': '3.0',
     'Author': 'HPE Aruba Networking',

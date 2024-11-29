@@ -21,7 +21,7 @@ import time
 from collections import OrderedDict
 
 Manifest = {
-    'Name': 'CoPP_Policy_Monitor',
+    'Name': 'copp',
     'Description': 'This script monitors the CoPP (COntrol Plane Policing) policy '
                    'configured on the switch. Traffic destined to the switch dropped '
                    'by CoPP due to a high traffic rate is counted as traffic dropped and traffic '

@@ -1097,6 +1097,7 @@ tr:hover {
 
 LONG_DESCRIPTION = '''\
 ## Configuration Notes
+
 The main components of the script are Manifest, Parameter Definitions and python code. 
 
 - 'Manifest' defines the unique name for this script.
@@ -1140,7 +1141,9 @@ The main components of the script are Manifest, Parameter Definitions and python
     - When IPSLA value anomaly cleared, corresponding alert is deleted & html report is generated.
     - When IPSLA session statistics have a count greater than 0, agent status is set to minor & agent report generated.
     - When IPSLA session statistics have a count equal to 0, corresponding alert is cleared & html report is generated.
+
 ## Script Limitations
+
 The path of traffic within VSX topologies may raise false positive alerts; specifically, when traffic is received by VSX#1 and transmitted by VSX#2.
 For instance, suppose there exists a two-member VSX topology with devices VSX#1 and VSX#2. Both devices have the Application Health script configured and agents deployed.  The client (application) sends requests to a server, so the traffic goes from Client -> L2 Switch -> VSX#2 -> VSX#1 -> Server. When the server responds, the traffic goes from Server -> VSX#1 -> L2 Switch -> Client (skipping VSX#2), and generates a false critical alert in VSX#2.
 '''

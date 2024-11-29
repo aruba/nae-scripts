@@ -19,6 +19,16 @@ well as a README with a more detailed description of each script.  All of these 
 NAE script portal.\n
 '''
 
+LICENSES_AND_REFERENCES = '''\
+## Licenses
+
+Apache License, Version 2.0
+
+## References
+
+- https://www.arubanetworks.com/resource/network-analytics-engine-solution-overview/
+'''
+
 
 def get_last_modified_time(file_path):
     """Gets the last modified time of a file from Git."""
@@ -92,6 +102,57 @@ def get_script_list(script_filepath):
             print("Error getting filename for path {}".format(path))
     return filename_list
 
+def create_script_level_readme(long_description, summary, min_firmware, max_firmware, supported_platforms, script_version, script_name, metadata_object):
+    # get all versions of this script
+    long_description_string = ""
+    if long_description is not None:
+        long_description_string = long_description    
+    script_versions = []
+    current_version = float(script_version)
+    for key in metadata_object['scripts']:
+        if script_name in key:
+            this_script_version_string = metadata_object['scripts'][key]['script_name_with_version'].replace("{}.".format(script_name), "")
+            this_script_version = float(this_script_version_string)
+            # check to see if this is newest version
+            if this_script_version > current_version:
+                # if not newest version, return None
+                return None
+            script_object = metadata_object['scripts'][key].copy()
+            script_object['version'] = this_script_version_string
+            script_versions.append(script_object)
+    software_versions_string = ""
+    platforms_string = ""
+    for script_object in script_versions:
+        minimum_version = "ArubaOS-CX {} Minimum".format(script_object['minimum_firmware'])
+        maximum_version = ""
+        if script_object['maximum_firmware'] is not None:
+            maximum_version = ", ArubaOS-CX {} Maximum".format(script_object['maximum_firmware'])
+        software_versions_string = "{}Script Version {}: {}{}\n".format(software_versions_string, script_object['version'], minimum_version, maximum_version)
+        platforms_list_string = ""
+        for platform in script_object["supported_platforms"]:
+            platforms_list_string += "{}, ".format(platform)
+        platforms_string = "{}Script Version {}: {}\n".format(platforms_string, script_object['version'], platforms_list_string.strip(", "))
+    return '''\
+## Summary
+
+{}
+
+## Supported Software Versions
+
+{}
+## Supported Platforms
+
+{}
+{}
+## Licenses
+
+Apache License, Version 2.0
+
+## References
+
+- https://www.arubanetworks.com/resource/network-analytics-engine-solution-overview/
+'''.format(summary, software_versions_string, platforms_string, long_description_string)
+
 script_filepath = join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY)
 script_list = get_script_list(script_filepath)
 
@@ -106,25 +167,36 @@ for (filename, filepath) in script_list:
     read_info = reader.read()
     dict_object = get_variable_value(read_info, "Manifest", required=True)
     long_description = get_variable_value(read_info, "LONG_DESCRIPTION", required=False)
-    if long_description is not None:
-        # write long description to script-level README
-        readme_filepath = join(filepath.replace(filename, "", 1), README_FILENAME)
-        with open(readme_filepath, 'w') as outfile:
-            outfile.write(long_description)
     manifest_object = parse_variable_dict(dict_object)
     script_object = {}
     script_name_with_version = "{}.{}".format(manifest_object["Name"], manifest_object["Version"])
     script_object["script_name_with_version"] = script_name_with_version
     script_object["supported_platforms"] = manifest_object["AOSCXPlatformList"]
     script_object["minimum_firmware"] = manifest_object["AOSCXVersionMin"]
-    script_object["maximum_firmware"] = None
+    maximum_firmware = None
     if 'AOSCXVersionMax' in manifest_object:
-        script_object["minimum_firmware"] = manifest_object["AOSCXVersionMax"]
+        maximum_firmware = manifest_object["AOSCXVersionMax"]
+    script_object["maximum_firmware"] = maximum_firmware
     script_object["description"] = manifest_object["Description"]
     script_object["last_modified"] = get_last_modified_time(filepath)
     script_object["location"] = filepath_from_directory_root
     metadata_object['scripts'][filename] = script_object
     high_level_description_object[manifest_object["Name"]] = manifest_object["Description"]
+    # write long description to script-level README
+    readme_filepath = join(filepath.replace(filename, "", 1), README_FILENAME)
+    readme_file_contents = create_script_level_readme(
+        long_description,
+        manifest_object["Description"],
+        manifest_object["AOSCXVersionMin"],
+        maximum_firmware,
+        manifest_object["AOSCXPlatformList"],
+        manifest_object["Version"],
+        manifest_object["Name"],
+        metadata_object
+    )
+    if readme_file_contents is not None:
+        with open(readme_filepath, 'w') as outfile:
+            outfile.write(readme_file_contents)
 
 # Create metadata file
 with open('metadata.json', 'w') as outfile:
