@@ -4,9 +4,11 @@ Agent to alert user when configuration changes and show the system info and diff
 
 ## Supported Software Versions
 
+Script Version 2.0: ArubaOS-CX 10.11 Minimum
 
 ## Supported Platforms
 
+Script Version 2.0: 8320, 8400
 
 
 ## Licenses

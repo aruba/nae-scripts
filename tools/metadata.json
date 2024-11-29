@@ -178,6 +178,18 @@
             "last_modified": "11/27/24 21:45:04",
             "location": "recommended_scripts/neighbors_count_monitor/neighbors_count_monitor.1.1.py"
         },
+        "configuration_change_service_now.py": {
+            "script_name_with_version": "configuration_change_service_now.2.0",
+            "supported_platforms": [
+                "8320",
+                "8400"
+            ],
+            "minimum_firmware": "10.11",
+            "maximum_firmware": null,
+            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. A ticket is created in Incident table of ServiceNow, with the diff of configuration changes and other details.",
+            "last_modified": "11/28/24 22:40:08",
+            "location": "recommended_scripts/configuration_change_service_now/configuration_change_service_now.py"
+        },
         "vsf_health_monitor.py": {
             "script_name_with_version": "vsf_health_monitor.3.0",
             "supported_platforms": [

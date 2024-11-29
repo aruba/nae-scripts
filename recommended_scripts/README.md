@@ -38,6 +38,9 @@ Monitoring number of ARP requests coming to the switch CPU
 ### neighbors_count_monitor:
 Agent to monitor number of neighbors learnt using ARP
 
+### configuration_change_service_now:
+Agent to alert user when configuration changes and show the system info and diff of configuration changes. A ticket is created in Incident table of ServiceNow, with the diff of configuration changes and other details.
+
 ### vsf_health_monitor:
 This script monitors the role, status, cpu and memory usage, stack_split_state and topology type of VSF Stack
 
