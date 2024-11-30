@@ -1,5 +1,132 @@
 {
     "scripts": {
+        "application_health_monitor.py": {
+            "script_name_with_version": "application_health_monitor.2.2",
+            "supported_platforms": [
+                "5420",
+                "6300",
+                "64xx",
+                "8100",
+                "8320",
+                "8325",
+                "8400",
+                "8360",
+                "9300",
+                "10000"
+            ],
+            "minimum_firmware": "10.08",
+            "maximum_firmware": null,
+            "description": "Network Analytics agent script to monitor application health",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/application_health_monitor/application_health_monitor.py"
+        },
+        "arp_requests_monitor.py": {
+            "script_name_with_version": "arp_request_monitor.2.0",
+            "supported_platforms": [
+                "8400"
+            ],
+            "minimum_firmware": "10.08",
+            "maximum_firmware": null,
+            "description": "Monitoring number of ARP requests coming to the switch CPU",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/arp_requests_monitor/arp_requests_monitor.py"
+        },
+        "broadcast_storm_monitor.py": {
+            "script_name_with_version": "broadcast_storm_monitor.2.0",
+            "supported_platforms": [
+                "6200",
+                "6300",
+                "64xx"
+            ],
+            "minimum_firmware": "10.11",
+            "maximum_firmware": null,
+            "description": "This script monitors for broadcast packets storm on an interface and shuts down the interface if the interface shut down option is enabled.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/broadcast_storm_monitor/broadcast_storm_monitor.py"
+        },
+        "client_services_health.py": {
+            "script_name_with_version": "client_services_health.4.2",
+            "supported_platforms": [
+                "5420",
+                "6200",
+                "6300",
+                "64xx",
+                "8100",
+                "8320",
+                "8325",
+                "8360",
+                "9300",
+                "10000"
+            ],
+            "minimum_firmware": "10.13.1000",
+            "maximum_firmware": null,
+            "description": "Client Service Health for Radius, DNS and DHCP",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/client_services_health/client_services_health.py"
+        },
+        "configuration_change_email.py": {
+            "script_name_with_version": "configuration_change_email.2.0",
+            "supported_platforms": [
+                "8320",
+                "8325",
+                "8400"
+            ],
+            "minimum_firmware": "10.08",
+            "maximum_firmware": null,
+            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. An email notification with the diff is sent whenever the configuration changes.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/configuration_change_email/configuration_change_email.py"
+        },
+        "configuration_change_service_now.py": {
+            "script_name_with_version": "configuration_change_service_now.2.0",
+            "supported_platforms": [
+                "8320",
+                "8400"
+            ],
+            "minimum_firmware": "10.11",
+            "maximum_firmware": null,
+            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. A ticket is created in Incident table of ServiceNow, with the diff of configuration changes and other details.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/configuration_change_service_now/configuration_change_service_now.py"
+        },
+        "configuration_change_tftp.py": {
+            "script_name_with_version": "configuration_change_tftp.2.0",
+            "supported_platforms": [
+                "8320",
+                "8325",
+                "8400"
+            ],
+            "minimum_firmware": "10.08",
+            "maximum_firmware": null,
+            "description": "Agent to copy the running configuration to a TFTP server whenever a configuration change occurs.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/configuration_change_tftp/configuration_change_tftp.py"
+        },
+        "configuration_change_topdesk.py": {
+            "script_name_with_version": "configuration_change_topdesk.2.0",
+            "supported_platforms": [
+                "8320",
+                "8325",
+                "8400"
+            ],
+            "minimum_firmware": "10.11",
+            "maximum_firmware": null,
+            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. An incident is created in TOPdesk, with the diff of configuration changes and other details.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/configuration_change_topdesk/configuration_change_topdesk.py"
+        },
+        "connectivity_monitor.py": {
+            "script_name_with_version": "connectivity_monitor.3.0",
+            "supported_platforms": [
+                "8320",
+                "8325"
+            ],
+            "minimum_firmware": "10.11",
+            "maximum_firmware": null,
+            "description": "This script monitors the reachability between two devices given the IP-SLA session.The IP-SLA session has to be configured in the switch before using this script to monitor the connectivity/reachability between two devices.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/connectivity_monitor/connectivity_monitor.py"
+        },
         "copp.py": {
             "script_name_with_version": "copp.5.1",
             "supported_platforms": [
@@ -16,6 +143,89 @@
             "description": "This script monitors the CoPP (COntrol Plane Policing) policy configured on the switch. Traffic destined to the switch dropped by CoPP due to a high traffic rate is counted as traffic dropped and traffic allowed to reach the switch control plane will be counted as traffic allowed. Alerts are generated when these rates exceed their respective thresholds. The thresholds are based on the the CoPP Class rates and the values entered by the user as parameters.",
             "last_modified": "11/30/24 11:59:12",
             "location": "recommended_scripts/copp/copp.py"
+        },
+        "daemon_resource_monitor.py": {
+            "script_name_with_version": "daemon_resource_monitor.4.2",
+            "supported_platforms": [
+                "6200",
+                "6300",
+                "64xx",
+                "8320",
+                "8325",
+                "8400"
+            ],
+            "minimum_firmware": "10.04",
+            "maximum_firmware": null,
+            "description": "Top 4 System daemon CPU & Memory utilization monitoring agent",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/daemon_resource_monitor/daemon_resource_monitor.py"
+        },
+        "evpn_vxlan_health.py": {
+            "script_name_with_version": "evpn_vxlan_health.3.0",
+            "supported_platforms": [
+                "6200",
+                "6300",
+                "64xx",
+                "8325",
+                "8360",
+                "8400",
+                "10000",
+                "8100"
+            ],
+            "minimum_firmware": "10.13.1000",
+            "maximum_firmware": null,
+            "description": "Agent for monitoring EVPN and VxLAN health",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/evpn_vxlan_health/evpn_vxlan_health.py"
+        },
+        "fans_speed_transition_monitor.1.0.py": {
+            "script_name_with_version": "fans_speed_transition_monitor.1.0",
+            "supported_platforms": [
+                "8320",
+                "8400"
+            ],
+            "minimum_firmware": "10.04",
+            "maximum_firmware": null,
+            "description": "Agent to monitor speed of all fans, wherein the transition between different speed states is monitored. The agent status is set to Critical when any of the fan speed has transition from normal/medium/slow to max/fast. The status remains in Critical, when other fans speed transits to max/fast, and syslog and cli are displayed.The agent status is set back to normal when all the fans are in normal/medium/slow state.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/fans_speed_transition_monitor/fans_speed_transition_monitor.1.0.py"
+        },
+        "hardware_device_health_monitor.py": {
+            "script_name_with_version": "hardware_device_health_monitor.1.6",
+            "supported_platforms": [
+                "6200",
+                "6300",
+                "64xx",
+                "8100",
+                "8320",
+                "8325",
+                "8360",
+                "8400"
+            ],
+            "minimum_firmware": "10.04",
+            "maximum_firmware": null,
+            "description": "This script monitors the overall hardware device health.",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/hardware_device_health_monitor/hardware_device_health_monitor.py"
+        },
+        "ipsla.py": {
+            "script_name_with_version": "ipsla.2.1",
+            "supported_platforms": [
+                "5420",
+                "6200",
+                "6300",
+                "64xx",
+                "8100",
+                "8320",
+                "8325",
+                "8360",
+                "8400"
+            ],
+            "minimum_firmware": "10.08",
+            "maximum_firmware": null,
+            "description": "Monitor particular value/aggregate value of an SLA test and specify shell command to run as action",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/ipsla/ipsla.py"
         },
         "lag_health_monitor.2.0.py": {
             "script_name_with_version": "lag_health_monitor.2.0",
@@ -45,8 +255,26 @@
             "last_modified": "11/30/24 11:59:12",
             "location": "recommended_scripts/mac_count_monitor/mac_count_monitor.py"
         },
-        "daemon_resource_monitor.py": {
-            "script_name_with_version": "daemon_resource_monitor.4.2",
+        "neighbors_count_monitor.1.1.py": {
+            "script_name_with_version": "neighbors_count_monitor.1.1",
+            "supported_platforms": [
+                "6200",
+                "6300",
+                "64xx",
+                "8320",
+                "8325",
+                "8400",
+                "9300",
+                "10000"
+            ],
+            "minimum_firmware": "10.04",
+            "maximum_firmware": null,
+            "description": "Agent to monitor number of neighbors learnt using ARP",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/neighbors_count_monitor/neighbors_count_monitor.1.1.py"
+        },
+        "neighbors_decrease_rate_monitor.py": {
+            "script_name_with_version": "neighbors_decrease_rate_monitor.2.0",
             "supported_platforms": [
                 "6200",
                 "6300",
@@ -55,11 +283,38 @@
                 "8325",
                 "8400"
             ],
+            "minimum_firmware": "10.08",
+            "maximum_firmware": null,
+            "description": "Monitor rate of decrease of neighbors",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/neighbors_decrease_rate_monitor/neighbors_decrease_rate_monitor.py"
+        },
+        "power_supply_monitors.2.1.py": {
+            "script_name_with_version": "power_supply_monitors.2.1",
+            "supported_platforms": [
+                "8320",
+                "8325",
+                "8400"
+            ],
             "minimum_firmware": "10.04",
             "maximum_firmware": null,
-            "description": "Top 4 System daemon CPU & Memory utilization monitoring agent",
+            "description": "System Power Supply monitoring agent",
             "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/daemon_resource_monitor/daemon_resource_monitor.py"
+            "location": "recommended_scripts/power_supply_monitors/power_supply_monitors.2.1.py"
+        },
+        "route_count_monitor.1.1.py": {
+            "script_name_with_version": "route_count_monitor.1.1",
+            "supported_platforms": [
+                "6300",
+                "6400",
+                "8320",
+                "8400"
+            ],
+            "minimum_firmware": "10.04",
+            "maximum_firmware": null,
+            "description": "Monitors the route count on the switch",
+            "last_modified": "11/30/24 11:59:12",
+            "location": "recommended_scripts/route_count_monitor/route_count_monitor.1.1.py"
         },
         "routes_decrease_rate_monitor.py": {
             "script_name_with_version": "routes_decrease_rate_monitor.2.0",
@@ -76,57 +331,6 @@
             "description": "Monitor rate of decrease of routes",
             "last_modified": "11/30/24 11:59:12",
             "location": "recommended_scripts/routes_decrease_rate_monitor/routes_decrease_rate_monitor.py"
-        },
-        "connectivity_monitor.py": {
-            "script_name_with_version": "connectivity_monitor.3.0",
-            "supported_platforms": [
-                "8320",
-                "8325"
-            ],
-            "minimum_firmware": "10.11",
-            "maximum_firmware": null,
-            "description": "This script monitors the reachability between two devices given the IP-SLA session.The IP-SLA session has to be configured in the switch before using this script to monitor the connectivity/reachability between two devices.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/connectivity_monitor/connectivity_monitor.py"
-        },
-        "power_supply_monitors.2.1.py": {
-            "script_name_with_version": "power_supply_monitors.2.1",
-            "supported_platforms": [
-                "8320",
-                "8325",
-                "8400"
-            ],
-            "minimum_firmware": "10.04",
-            "maximum_firmware": null,
-            "description": "System Power Supply monitoring agent",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/power_supply_monitors/power_supply_monitors.2.1.py"
-        },
-        "configuration_change_tftp.py": {
-            "script_name_with_version": "configuration_change_tftp.2.0",
-            "supported_platforms": [
-                "8320",
-                "8325",
-                "8400"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "Agent to copy the running configuration to a TFTP server whenever a configuration change occurs.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/configuration_change_tftp/configuration_change_tftp.py"
-        },
-        "broadcast_storm_monitor.py": {
-            "script_name_with_version": "broadcast_storm_monitor.2.0",
-            "supported_platforms": [
-                "6200",
-                "6300",
-                "64xx"
-            ],
-            "minimum_firmware": "10.11",
-            "maximum_firmware": null,
-            "description": "This script monitors for broadcast packets storm on an interface and shuts down the interface if the interface shut down option is enabled.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/broadcast_storm_monitor/broadcast_storm_monitor.py"
         },
         "routing_health_monitor.py": {
             "script_name_with_version": "routing_health_monitor.3.1",
@@ -149,59 +353,24 @@
             "last_modified": "11/30/24 11:59:12",
             "location": "recommended_scripts/routing_health_monitor/routing_health_monitor.py"
         },
-        "arp_requests_monitor.py": {
-            "script_name_with_version": "arp_request_monitor.2.0",
+        "software_device_health_monitor.py": {
+            "script_name_with_version": "software_device_health_monitor.2.0",
             "supported_platforms": [
-                "8400"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "Monitoring number of ARP requests coming to the switch CPU",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/arp_requests_monitor/arp_requests_monitor.py"
-        },
-        "configuration_change_topdesk.py": {
-            "script_name_with_version": "configuration_change_topdesk.2.0",
-            "supported_platforms": [
-                "8320",
-                "8325",
-                "8400"
-            ],
-            "minimum_firmware": "10.11",
-            "maximum_firmware": null,
-            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. An incident is created in TOPdesk, with the diff of configuration changes and other details.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/configuration_change_topdesk/configuration_change_topdesk.py"
-        },
-        "neighbors_count_monitor.1.1.py": {
-            "script_name_with_version": "neighbors_count_monitor.1.1",
-            "supported_platforms": [
+                "5420",
                 "6200",
                 "6300",
                 "64xx",
+                "8100",
                 "8320",
                 "8325",
                 "8400",
-                "9300",
-                "10000"
+                "9300"
             ],
-            "minimum_firmware": "10.04",
+            "minimum_firmware": "10.08",
             "maximum_firmware": null,
-            "description": "Agent to monitor number of neighbors learnt using ARP",
+            "description": "This script monitors overall software device health.",
             "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/neighbors_count_monitor/neighbors_count_monitor.1.1.py"
-        },
-        "configuration_change_service_now.py": {
-            "script_name_with_version": "configuration_change_service_now.2.0",
-            "supported_platforms": [
-                "8320",
-                "8400"
-            ],
-            "minimum_firmware": "10.11",
-            "maximum_firmware": null,
-            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. A ticket is created in Incident table of ServiceNow, with the diff of configuration changes and other details.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/configuration_change_service_now/configuration_change_service_now.py"
+            "location": "recommended_scripts/software_device_health_monitor/software_device_health_monitor.py"
         },
         "vsf_health_monitor.py": {
             "script_name_with_version": "vsf_health_monitor.3.0",
@@ -228,175 +397,6 @@
             "description": "VSX Health monitoring",
             "last_modified": "11/30/24 11:59:12",
             "location": "recommended_scripts/vsx_health_monitor/vsx_health_monitor.py"
-        },
-        "software_device_health_monitor.py": {
-            "script_name_with_version": "software_device_health_monitor.2.0",
-            "supported_platforms": [
-                "5420",
-                "6200",
-                "6300",
-                "64xx",
-                "8100",
-                "8320",
-                "8325",
-                "8400",
-                "9300"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "This script monitors overall software device health.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/software_device_health_monitor/software_device_health_monitor.py"
-        },
-        "evpn_vxlan_health.py": {
-            "script_name_with_version": "evpn_vxlan_health.3.0",
-            "supported_platforms": [
-                "6200",
-                "6300",
-                "64xx",
-                "8325",
-                "8360",
-                "8400",
-                "10000",
-                "8100"
-            ],
-            "minimum_firmware": "10.13.1000",
-            "maximum_firmware": null,
-            "description": "Agent for monitoring EVPN and VxLAN health",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/evpn_vxlan_health/evpn_vxlan_health.py"
-        },
-        "ipsla.py": {
-            "script_name_with_version": "ipsla.2.1",
-            "supported_platforms": [
-                "5420",
-                "6200",
-                "6300",
-                "64xx",
-                "8100",
-                "8320",
-                "8325",
-                "8360",
-                "8400"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "Monitor particular value/aggregate value of an SLA test and specify shell command to run as action",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/ipsla/ipsla.py"
-        },
-        "configuration_change_email.py": {
-            "script_name_with_version": "configuration_change_email.2.0",
-            "supported_platforms": [
-                "8320",
-                "8325",
-                "8400"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "Agent to alert user when configuration changes and show the system info and diff of configuration changes. An email notification with the diff is sent whenever the configuration changes.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/configuration_change_email/configuration_change_email.py"
-        },
-        "client_services_health.py": {
-            "script_name_with_version": "client_services_health.4.2",
-            "supported_platforms": [
-                "5420",
-                "6200",
-                "6300",
-                "64xx",
-                "8100",
-                "8320",
-                "8325",
-                "8360",
-                "9300",
-                "10000"
-            ],
-            "minimum_firmware": "10.13.1000",
-            "maximum_firmware": null,
-            "description": "Client Service Health for Radius, DNS and DHCP",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/client_services_health/client_services_health.py"
-        },
-        "hardware_device_health_monitor.py": {
-            "script_name_with_version": "hardware_device_health_monitor.1.6",
-            "supported_platforms": [
-                "6200",
-                "6300",
-                "64xx",
-                "8100",
-                "8320",
-                "8325",
-                "8360",
-                "8400"
-            ],
-            "minimum_firmware": "10.04",
-            "maximum_firmware": null,
-            "description": "This script monitors the overall hardware device health.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/hardware_device_health_monitor/hardware_device_health_monitor.py"
-        },
-        "route_count_monitor.1.1.py": {
-            "script_name_with_version": "route_count_monitor.1.1",
-            "supported_platforms": [
-                "6300",
-                "6400",
-                "8320",
-                "8400"
-            ],
-            "minimum_firmware": "10.04",
-            "maximum_firmware": null,
-            "description": "Monitors the route count on the switch",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/route_count_monitor/route_count_monitor.1.1.py"
-        },
-        "fans_speed_transition_monitor.1.0.py": {
-            "script_name_with_version": "fans_speed_transition_monitor.1.0",
-            "supported_platforms": [
-                "8320",
-                "8400"
-            ],
-            "minimum_firmware": "10.04",
-            "maximum_firmware": null,
-            "description": "Agent to monitor speed of all fans, wherein the transition between different speed states is monitored. The agent status is set to Critical when any of the fan speed has transition from normal/medium/slow to max/fast. The status remains in Critical, when other fans speed transits to max/fast, and syslog and cli are displayed.The agent status is set back to normal when all the fans are in normal/medium/slow state.",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/fans_speed_transition_monitor/fans_speed_transition_monitor.1.0.py"
-        },
-        "neighbors_decrease_rate_monitor.py": {
-            "script_name_with_version": "neighbors_decrease_rate_monitor.2.0",
-            "supported_platforms": [
-                "6200",
-                "6300",
-                "64xx",
-                "8320",
-                "8325",
-                "8400"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "Monitor rate of decrease of neighbors",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/neighbors_decrease_rate_monitor/neighbors_decrease_rate_monitor.py"
-        },
-        "application_health_monitor.py": {
-            "script_name_with_version": "application_health_monitor.2.2",
-            "supported_platforms": [
-                "5420",
-                "6300",
-                "64xx",
-                "8100",
-                "8320",
-                "8325",
-                "8400",
-                "8360",
-                "9300",
-                "10000"
-            ],
-            "minimum_firmware": "10.08",
-            "maximum_firmware": null,
-            "description": "Network Analytics agent script to monitor application health",
-            "last_modified": "11/30/24 11:59:12",
-            "location": "recommended_scripts/application_health_monitor/application_health_monitor.py"
         }
     }
 }

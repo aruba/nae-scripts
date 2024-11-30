@@ -1,4 +1,5 @@
 import ast
+import collections
 from os import listdir
 from os.path import isdir, isfile, join
 import subprocess
@@ -102,22 +103,22 @@ def get_script_list(script_filepath):
             print("Error getting filename for path {}".format(path))
     return filename_list
 
-def create_script_level_readme(long_description, summary, min_firmware, max_firmware, supported_platforms, script_version, script_name, metadata_object):
+def create_script_level_readme(long_description, summary, min_firmware, max_firmware, supported_platforms, script_version, script_name, metadata_scripts_object):
     # get all versions of this script
     long_description_string = ""
     if long_description is not None:
         long_description_string = long_description    
     script_versions = []
     current_version = float(script_version)
-    for key in metadata_object['scripts']:
+    for key in metadata_scripts_object:
         if script_name in key:
-            this_script_version_string = metadata_object['scripts'][key]['script_name_with_version'].replace("{}.".format(script_name), "")
+            this_script_version_string = metadata_scripts_object[key]['script_name_with_version'].replace("{}.".format(script_name), "")
             this_script_version = float(this_script_version_string)
             # check to see if this is newest version
             if this_script_version > current_version:
                 # if not newest version, return None
                 return None
-            script_object = metadata_object['scripts'][key].copy()
+            script_object = metadata_scripts_object[key].copy()
             script_object['version'] = this_script_version_string
             script_versions.append(script_object)
     software_versions_string = ""
@@ -157,6 +158,7 @@ script_filepath = join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY)
 script_list = get_script_list(script_filepath)
 
 metadata_object = {"scripts": {}}
+metadata_scripts_object = {}
 high_level_description_object = {}
 
 for (filename, filepath) in script_list:
@@ -180,7 +182,7 @@ for (filename, filepath) in script_list:
     script_object["description"] = manifest_object["Description"]
     script_object["last_modified"] = get_last_modified_time(filepath)
     script_object["location"] = filepath_from_directory_root
-    metadata_object['scripts'][filename] = script_object
+    metadata_scripts_object[filename] = script_object
     high_level_description_object[manifest_object["Name"]] = manifest_object["Description"]
     # write long description to script-level README
     readme_filepath = join(filepath.replace(filename, "", 1), README_FILENAME)
@@ -192,11 +194,16 @@ for (filename, filepath) in script_list:
         manifest_object["AOSCXPlatformList"],
         manifest_object["Version"],
         manifest_object["Name"],
-        metadata_object
+        metadata_scripts_object
     )
     if readme_file_contents is not None:
         with open(readme_filepath, 'w') as outfile:
             outfile.write(readme_file_contents)
+
+# sort scripts alphabetically
+sorted_metadata_scripts_object = collections.OrderedDict(sorted(metadata_scripts_object.items()))
+
+metadata_object['scripts'] = sorted_metadata_scripts_object
 
 # Create metadata file
 with open('metadata.json', 'w') as outfile:
