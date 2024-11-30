@@ -35,6 +35,9 @@ Agent for monitoring routing health
 ### arp_request_monitor:
 Monitoring number of ARP requests coming to the switch CPU
 
+### configuration_change_topdesk:
+Agent to alert user when configuration changes and show the system info and diff of configuration changes. An incident is created in TOPdesk, with the diff of configuration changes and other details.
+
 ### neighbors_count_monitor:
 Agent to monitor number of neighbors learnt using ARP
 
@@ -53,14 +56,11 @@ This script monitors overall software device health.
 ### evpn_vxlan_health:
 Agent for monitoring EVPN and VxLAN health
 
-### topdesk_configuration_change_monitor:
-Agent to alert user when configuration changes and show the system info and diff of configuration changes. An incident is created in TOPdesk, with the diff of configuration changes and other details.
-
 ### ipsla:
-Monitor particular value/aggregate value of aSLA test and specify shell command to run as action
+Monitor particular value/aggregate value of an SLA test and specify shell command to run as action
 
 ### configuration_change_email:
-Agent to alert user when configuration changes and show the system info and diff of configuration changes. Anemail notification with the diff is sent whenever the configuration changes.
+Agent to alert user when configuration changes and show the system info and diff of configuration changes. An email notification with the diff is sent whenever the configuration changes.
 
 ### client_services_health:
 Client Service Health for Radius, DNS and DHCP

@@ -15,6 +15,31 @@
 # specific language governing permissions and limitations
 # under the License.
 
+LONG_DESCRIPTION = '''\
+## Script Description
+
+The main components of this script are Manifest and the Policy Constructor.   
+
+The  'Manifest' defines the unique name for this script.
+
+The 'Policy Constructor' handles the main logic for monitoring the status and the value of the power supply units.  
+
+The script monitors the transition of the status 
+- from ok to fault_input
+- from ok to fault_output
+- from ok to warning
+- from ok to unknown
+- from ok to fault_absent
+- from fault_output to ok
+- from fault_input to ok
+- from unknown to ok
+- from fault_absent to ok
+
+When there is a transition the agent displays the output from the 'show environment power-supply' command and creates a Syslog message with the transition details. 
+
+The script also monitors and displays the maximum power and the instantaneous power in Watts for all the PSUs. 
+'''
+
 Manifest = {
     'Name': 'power_supply_monitors',
     'Description': 'System Power Supply monitoring agent',
