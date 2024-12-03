@@ -41,7 +41,7 @@
             "minimum_firmware": "10.11",
             "maximum_firmware": null,
             "description": "This script monitors for broadcast packets storm on an interface and shuts down the interface if the interface shut down option is enabled.",
-            "last_modified": "11/30/24 11:59:12",
+            "last_modified": "12/03/24 11:17:08",
             "location": "recommended_scripts/broadcast_storm_monitor/broadcast_storm_monitor.py"
         },
         "client_services_health.py": {

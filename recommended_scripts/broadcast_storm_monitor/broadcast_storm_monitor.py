@@ -16,18 +16,6 @@
 # under the License.
 
 LONG_DESCRIPTION = '''\
-## Summary
-
-The purpose of this script is to help in automatic broadcast storm fault detection which helps protect against network loops. 
-
-## Software Versions Required
-
-Script Version 2.0: ArubaOS-CX 10.11 Minimum
-
-## Platforms Supported
-
-Script Version 2.0: 6200, 6300, 64xx
-
 ## Script Description
 
 The main components of the script are monitors, conditions and actions.
@@ -43,14 +31,6 @@ The main components of the script are monitors, conditions and actions.
                 - The agent status is marked as Critical, CLI commands to show interface details are executed. Syslog says 'Broadcast storm fault detected on interface <name> at low sensitivity level'.
             4. When there is no longer broadcast storm fault, Syslog says 'Broadcast storm fault detected on interface <name> is back to normal'.
                 - If there is no fault found on any of the interfaces, the agent status is marked as Normal.
-
-## Licenses
-
-Apache License, Version 2.0
-
-## References
-
-- https://www.arubanetworks.com/resource/network-analytics-engine-solution-overview/
 '''
 
 Manifest = {
