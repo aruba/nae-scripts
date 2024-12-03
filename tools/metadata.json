@@ -388,14 +388,16 @@
             "script_name_with_version": "vsx_health_monitor.4.0",
             "supported_platforms": [
                 "64xx",
+                "8100",
                 "8320",
                 "8325",
+                "8360",
                 "8400"
             ],
             "minimum_firmware": "10.13.1000",
             "maximum_firmware": null,
             "description": "VSX Health monitoring",
-            "last_modified": "11/30/24 11:59:12",
+            "last_modified": "12/03/24 11:11:04",
             "location": "recommended_scripts/vsx_health_monitor/vsx_health_monitor.py"
         }
     }
