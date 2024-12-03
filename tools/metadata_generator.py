@@ -200,8 +200,11 @@ for (filename, filepath) in script_list:
         with open(readme_filepath, 'w') as outfile:
             outfile.write(readme_file_contents)
 
-# sort scripts alphabetically
+# sort scripts alphabetically for metadata object
 sorted_metadata_scripts_object = collections.OrderedDict(sorted(metadata_scripts_object.items()))
+
+# sort scripts alphabetically for high level README object
+sorted_high_level_description_object = collections.OrderedDict(sorted(high_level_description_object.items()))
 
 metadata_object['scripts'] = sorted_metadata_scripts_object
 
@@ -212,5 +215,5 @@ with open('metadata.json', 'w') as outfile:
 # Create high-level README file
 with open(join(DIRECTORY_ROOT_PREFIX, SCRIPTS_DIRECTORY, README_FILENAME), 'w') as outfile:
     outfile.write(HIGH_LEVEL_README_HEADING)
-    for script_name in high_level_description_object:
-        outfile.write("### {}:\n{}\n\n".format(script_name, high_level_description_object[script_name]))
+    for script_name in sorted_high_level_description_object:
+        outfile.write("### {}:\n{}\n\n".format(script_name, sorted_high_level_description_object[script_name]))
