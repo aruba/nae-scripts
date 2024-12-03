@@ -21,14 +21,14 @@
             "location": "recommended_scripts/application_health_monitor/application_health_monitor.py"
         },
         "arp_requests_monitor.py": {
-            "script_name_with_version": "arp_request_monitor.2.0",
+            "script_name_with_version": "arp_requests_monitor.2.0",
             "supported_platforms": [
                 "8400"
             ],
             "minimum_firmware": "10.08",
             "maximum_firmware": null,
             "description": "Monitoring number of ARP requests coming to the switch CPU",
-            "last_modified": "11/30/24 11:59:12",
+            "last_modified": "12/03/24 11:33:37",
             "location": "recommended_scripts/arp_requests_monitor/arp_requests_monitor.py"
         },
         "broadcast_storm_monitor.py": {

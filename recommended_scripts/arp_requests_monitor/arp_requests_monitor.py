@@ -34,7 +34,7 @@ import re
 from collections import OrderedDict
 
 Manifest = {
-    'Name': 'arp_request_monitor',
+    'Name': 'arp_requests_monitor',
     'Description': 'Monitoring number of ARP requests coming to the switch CPU',
     'Version': '2.0',
     'Author': 'HPE Aruba Networking',

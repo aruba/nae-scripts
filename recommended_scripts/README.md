@@ -5,7 +5,7 @@ These are the scripts recommended by HPE Aruba Networks for customers to use on 
 ### application_health_monitor:
 Network Analytics agent script to monitor application health
 
-### arp_request_monitor:
+### arp_requests_monitor:
 Monitoring number of ARP requests coming to the switch CPU
 
 ### broadcast_storm_monitor:

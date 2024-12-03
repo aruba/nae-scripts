@@ -4,9 +4,11 @@ Monitoring number of ARP requests coming to the switch CPU
 
 ## Supported Software Versions
 
+Script Version 2.0: ArubaOS-CX 10.08 Minimum
 
 ## Supported Platforms
 
+Script Version 2.0: 8400
 
 ## Script Description
 
