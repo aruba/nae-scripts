@@ -74,6 +74,9 @@ Agent for monitoring routing health
 ### software_device_health_monitor:
 This script monitors overall software device health.
 
+### tcam_resource_utilization_monitor:
+Agent to monitor TCAM utilization and generate alerts when utilization exceeds specified thresholds
+
 ### vsf_health_monitor:
 This script monitors the role, status, cpu and memory usage, stack_split_state and topology type of VSF Stack
 

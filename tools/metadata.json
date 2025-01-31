@@ -372,6 +372,18 @@
             "last_modified": "11/30/24 11:59:12",
             "location": "recommended_scripts/software_device_health_monitor/software_device_health_monitor.py"
         },
+        "tcam_resource_utilization_monitor.py": {
+            "script_name_with_version": "tcam_resource_utilization_monitor.1.0",
+            "supported_platforms": [
+                "8325",
+                "10000"
+            ],
+            "minimum_firmware": "10.13",
+            "maximum_firmware": "10.13",
+            "description": "Agent to monitor TCAM utilization and generate alerts when utilization exceeds specified thresholds",
+            "last_modified": "",
+            "location": "recommended_scripts/tcam_resource_utilization_monitor/tcam_resource_utilization_monitor.py"
+        },
         "vsf_health_monitor.py": {
             "script_name_with_version": "vsf_health_monitor.3.0",
             "supported_platforms": [
