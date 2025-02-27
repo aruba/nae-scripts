@@ -8,7 +8,7 @@ Script Version 2.0: ArubaOS-CX 10.08 Minimum
 
 ## Supported Platforms
 
-Script Version 2.0: 8400
+Script Version 2.0: 8400, 9300, 8360, 8325, 8320, 6400, 6300, 6200, 8100, 10000
 
 ## Script Description
 

@@ -23,7 +23,16 @@
         "arp_requests_monitor.py": {
             "script_name_with_version": "arp_requests_monitor.2.0",
             "supported_platforms": [
-                "8400"
+                "8400",
+                "9300",
+                "8360",
+                "8325",
+                "8320",
+                "6400",
+                "6300",
+                "6200",
+                "8100",
+                "10000"
             ],
             "minimum_firmware": "10.08",
             "maximum_firmware": null,
@@ -265,7 +274,9 @@
                 "8325",
                 "8400",
                 "9300",
-                "10000"
+                "10000",
+                "8100",
+                "8360"
             ],
             "minimum_firmware": "10.04",
             "maximum_firmware": null,
@@ -364,7 +375,9 @@
                 "8320",
                 "8325",
                 "8400",
-                "9300"
+                "9300",
+                "10000",
+                "8360"
             ],
             "minimum_firmware": "10.08",
             "maximum_firmware": null,
@@ -381,7 +394,7 @@
             "minimum_firmware": "10.13",
             "maximum_firmware": "10.13",
             "description": "Agent to monitor TCAM utilization and generate alerts when utilization exceeds specified thresholds",
-            "last_modified": "",
+            "last_modified": "01/31/25 14:24:30",
             "location": "recommended_scripts/tcam_resource_utilization_monitor/tcam_resource_utilization_monitor.py"
         },
         "vsf_health_monitor.py": {
