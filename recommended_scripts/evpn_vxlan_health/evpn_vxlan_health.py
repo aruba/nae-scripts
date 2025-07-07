@@ -221,7 +221,7 @@ from time import (sleep, clock_gettime, CLOCK_PROCESS_CPUTIME_ID)
 Manifest = {
     'Name': 'evpn_vxlan_health',
     'Description': 'Agent for monitoring EVPN and VxLAN health',
-    'Version': '3.0',
+    'Version': '3.1',
     'Author': 'HPE Aruba Networking',
     'AOSCXVersionMin': '10.13.1000',
     'AOSCXPlatformList': ['6200', '6300', '64xx', '8325', '8360', '8400', '10000', '8100']
