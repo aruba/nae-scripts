@@ -221,7 +221,7 @@ from time import (sleep, clock_gettime, CLOCK_PROCESS_CPUTIME_ID)
 Manifest = {
     'Name': 'evpn_vxlan_health',
     'Description': 'Agent for monitoring EVPN and VxLAN health',
-    'Version': '3.0',
+    'Version': '3.1',
     'Author': 'HPE Aruba Networking',
     'AOSCXVersionMin': '10.13.1000',
     'AOSCXPlatformList': ['6200', '6300', '64xx', '8325', '8360', '8400', '10000', '8100']
@@ -1510,14 +1510,32 @@ class VxlanTunnelMonitorAgent(Agent):
                 subnet_mask = '%2F128' if ipv6 else '%2F32'
                 if ipv6:
                     destination = destination.replace(':', '%3A')
-                nh_url = "{0}/rest/v10.10/system/vrfs/{1}/routes/{2}{3}/" \
+                nh_url = "{0}/rest/v10.13/system/vrfs/{1}/routes/{2}{3}/" \
                          "nexthops?depth=2".format(
                              HTTP_ADDRESS, vrf, destination, subnet_mask)
                 dprint(nh_url)
                 response = self.fetch_url(nh_url)
                 dprint(response)
                 if response:
-                    nh_add = list(response.values())[0]
+                    # get next-hop address
+                    # response is a dict with format:
+                    # {
+                    #     '1': {
+                    #         'id': 1,
+                    #         'ip_address': '1.2.3.4',
+                    #         'port': '1/1/1',
+                    #         'selected': True,
+                    #         'status': {},
+                    #         'type': 'legacy-nexthop',
+                    #         'vni': None,
+                    #         'weight': 0    
+                    # },
+                    # ...
+                    nh_add = ''
+                    for key in response:
+                        if response[key]['ip_address'] is not None:
+                            nh_add = response[key]['ip_address']
+                            break
                     if len(nh_add) > 0:
                         is_nh_v6 = True if ':' in nh_add else False
                         self.action_conn.add("ping{0} {1} vrf {2} "
@@ -1635,7 +1653,7 @@ class VxlanTunnelMonitorAgent(Agent):
                         ipv6 = True if ':' in ip_address[0] else False
                         if ipv6:
                             ip_address[0] = ip_address[0].replace(':', '%3A')
-                        nh_url = "{0}/rest/v10.10/system/vrfs/{1}/routes/" \
+                        nh_url = "{0}/rest/v10.13/system/vrfs/{1}/routes/" \
                                  "{2}%2F{3}/nexthops?depth=2".format(
                                      HTTP_ADDRESS, vrf, ip_address[0],
                                      ip_address[1])
@@ -1643,7 +1661,25 @@ class VxlanTunnelMonitorAgent(Agent):
                         response = self.fetch_url(nh_url)
                         dprint("nh_response={0}".format(response))
                         if response is not None:
-                            nh_add = list(response.values())[0]
+                            # get next-hop address
+                            # response is a dict with format:
+                            # {
+                            #     '1': {
+                            #         'id': 1,
+                            #         'ip_address': '1.2.3.4',
+                            #         'port': '1/1/1',
+                            #         'selected': True,
+                            #         'status': {},
+                            #         'type': 'legacy-nexthop',
+                            #         'vni': None,
+                            #         'weight': 0    
+                            # },
+                            # ...
+                            nh_add = ''
+                            for key in response:
+                                if response[key]['ip_address'] is not None:
+                                    nh_add = response[key]['ip_address']
+                                    break
                             if len(nh_add) > 0:
                                 is_nh_v6 = True if ':' in nh_add else False
                                 self.action_conn.add("ping{0} {1} vrf {2} "
