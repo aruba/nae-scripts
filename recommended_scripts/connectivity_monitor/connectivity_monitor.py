@@ -15,7 +15,7 @@ The main components of the script are Manifest, Parameter Definitions and the py
 
 - 'Manifest' defines the unique name for this script.
 - 'Parameter Definitions' defines the input parameters to the script. This script requires the following parameters:
-    1. connectivity_check_rate – the rate at which, status of the connectivity is checked. The value should be (at the least) twice the probe-interval of the IP-SLA session. It is measured in minutes. Default value is 1 minute (assuming the min probe-interval as 5 seconds.)
+    1. connectivity_check_rate - the rate at which, status of the connectivity is checked. The value should be (at the least) twice the probe-interval of the IP-SLA session. It is measured in minutes. Default value is 1 minute (assuming the min probe-interval as 5 seconds.)
     2. ipsla_session_name - This parameter specifies ipsla-session name. Default value is ' '.
 
 The script defines Monitor(s), Condition(s) and Action(s):
@@ -29,7 +29,7 @@ The script defines Monitor(s), Condition(s) and Action(s):
     1. Periodic call back for every connectivity_check_rate in minutes.
 - Actions:
     1. Minor alert - When the connectivity between the source and destination is lost for the specific probe, minor alert is created.
-    2. Critical alert – If the connectivity is still lost after the Minor alert, to indicate the consistent loss of connectivity a critical alert is generated.
+    2. Critical alert - If the connectivity is still lost after the Minor alert, to indicate the consistent loss of connectivity a critical alert is generated.
     3. Normal alert -  When the connectivity between the source and destination IP is restored, Normal alert is generated.
 '''
 
