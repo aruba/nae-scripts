@@ -22,7 +22,7 @@ The main components of the script are Manifest, Parameter Definitions and the Py
 
 - 'Manifest' defines the unique name for this script.
 - 'Parameter Definitions' defines the input parameters to the script. This script requires the following parameters: 
-    1. lag_name_1 – This parameter specifies lag name. Default value is ' '.
+    1. lag_name_1 - This parameter specifies lag name. Default value is ' '.
     2. lag_name_2 - This parameter specifies lag name. Default value is ' '.
     3. lag_name_3 - This parameter specifies lag name. Default value is ' '.
     4. lag_name_4 - This parameter specifies lag name. Default value is ' '.
@@ -40,7 +40,7 @@ The script defines Monitor(s), Condition(s) and Action(s) :
 - Conditions: 
     1. Conditions are defined to verify the transition of forwarding state of configured LAG from "true" to "false" AND blocking layer from any state to "AGGREGATION" .  
 - Actions:
-    1. Critical alert – When the monitoring condition is met, agent status is changed to Critical. A detailed Syslog message indicating the transition states and output of CLI command ('show lacp aggregate {lag_id}') is displayed  in the monitoring agent UI. 
+    1. Critical alert - When the monitoring condition is met, agent status is changed to Critical. A detailed Syslog message indicating the transition states and output of CLI command ('show lacp aggregate {lag_id}') is displayed  in the monitoring agent UI. 
     2. Normal alert -  When blocking layer and forwarding state is transitioned back to "NONE" and "true" respectively, then the agent status is set back to 'Normal'.  A Syslog message indicating the LAG status is displayed in the monitoring agent UI.
 
 This monitored data is then plotted in a time-series chart for analysis purpose.
