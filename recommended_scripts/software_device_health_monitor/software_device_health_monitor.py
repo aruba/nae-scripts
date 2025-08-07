@@ -67,7 +67,7 @@ The main components of the script are Manifest, Parameter Definitions and python
         - The agent alert level is updated to Normal
         - A log message is generated with the rate of decrease value
         - A custom report is generated with the rate of decrease value
-    - Broadcast storm fault -​​ The user can provide the threshold value for the rate of change of broadcast packets over 20 seconds. For low sensitivity level, the threshold value is 170500, for medium sensitivity level, it is 100000 and for high sensitivity level, it is 29500. 
+    - Broadcast storm fault - The user can provide the threshold value for the rate of change of broadcast packets over 20 seconds. For low sensitivity level, the threshold value is 170500, for medium sensitivity level, it is 100000 and for high sensitivity level, it is 29500. 
         - Conditions for this monitor are -
             - When the threshold provided is for high sensitivity level and there is broadcast storm fault, the following actions are taken -​
                 - The agent status is marked as Minor, CLI commands to show interface details are executed. Syslog says 'Broadcast storm fault detected on interface <name> at high sensitivity level'.
@@ -77,7 +77,7 @@ The main components of the script are Manifest, Parameter Definitions and python
                 - The agent status is marked as Critical, CLI commands to show interface details are executed. Syslog says 'Broadcast storm fault detected on interface <name> at low sensitivity level'.
             - When there is no longer broadcast storm fault, Syslog says 'Broadcast storm fault detected on interface <name> is back to normal'.
                 - If there is no fault found on any of the interfaces, the agent status is marked as Normal.
-    - Over bandwidth fault -​​ 
+    - Over bandwidth fault -
         - Conditions for this monitor are -
             - When the threshold provided is for high sensitivity level and there is over bandwidth  fault, the following actions are taken -​
                 - The agent status is marked as Minor, CLI commands to show interface details are executed. Syslog says 'over bandwidth fault detected on interface <name> at high sensitivity level'.
