@@ -22,9 +22,9 @@ The main components of the script are Manifest, Parameter Definitions and python
 
 - 'Manifest' defines the unique name for this script.
 - 'Parameter Definitions' defines the input parameters to the script. This script requires the following parameters: 
-        - username - Username of the TOPdesk® account instance.
-        - password - Password of the TOPdesk® account instance.
-        - domain_name - Domain name of the TOPdesk® account instance.
+        - username - Username of the TOPdesk account instance.
+        - password - Password of the TOPdesk account instance.
+        - domain_name - Domain name of the TOPdesk account instance.
         - short_description - Short description for the configuration change event.
         - web_proxy - Web proxy IP address  
 
@@ -47,7 +47,7 @@ _Note: The monitored data is plotted in a time-series chart for analysis purpose
         - CLI to show the diff of last checkpoint and running config is executed.
         - CLI to show the diff of start-up config and running config is executed.
         - Shell command to show recent audit logs for configuration changes is executed.
-        - An incident ticket is posted to TOPdesk®, with the configuration diff, system and time information.
+        - An incident ticket is posted to TOPdesk, with the configuration diff, system and time information.
         - A link to the Agent dashboard of the affected switch is provided in the ticket 
 '''
 

@@ -15,16 +15,16 @@
 # specific language governing permissions and limitations
 # under the License.
 
-#               --  Configuration Change (ServiceNow®) functionality  --
-# The main purpose of the configuration change ServiceNow® agent is to provide
+#               --  Configuration Change (ServiceNow) functionality  --
+# The main purpose of the configuration change ServiceNow agent is to provide
 # differences in checkpoint configurations and create a ticket in the Incident
-# table of ServiceNow® with relevant details.
+# table of ServiceNow with relevant details.
 #
 # 'Parameter Definitions' defines the input parameters to the script.
 # This script requires the following parameters:
-#       1. username - Username of the ServiceNow® account instance.
-#       2. password - Password of the ServiceNow® account instance.
-#       3. domain_name - Domain name of the ServiceNow® account instance.
+#       1. username - Username of the ServiceNow account instance.
+#       2. password - Password of the ServiceNow account instance.
+#       3. domain_name - Domain name of the ServiceNow account instance.
 #       4. short_description - Short description for the configuration change
 #                              event.
 #       5. web_proxy - Web proxy IP address
@@ -59,7 +59,7 @@
 #                 is executed.
 #               * Shell command to show recent audit logs for configuration
 #                 changes is executed.
-#               * A ticket is posted to the Incident table of ServiceNow®,
+#               * A ticket is posted to the Incident table of ServiceNow,
 #                 with the configuration diff, urgency, severity, short
 #                 description, category (network) and time information
 # Note: For very large configurations, there is a chance errors occur in the
@@ -71,9 +71,9 @@ LONG_DESCRIPTION = '''\
 - 'Parameter Definitions' defines the input parameters to the script.  
 This script requires the following parameters: 
 
-    1. username - Username of the ServiceNow® account instance.
-    2. password - Password of the ServiceNow® account instance.
-    3. domain_name - Domain name of the ServiceNow® account instance.
+    1. username - Username of the ServiceNow account instance.
+    2. password - Password of the ServiceNow account instance.
+    3. domain_name - Domain name of the ServiceNow account instance.
     4. short_description - Short description for the configuration change event.
     5. web_proxy - Web proxy IP address
     6. urgency - Urgency of the configuration change event.
