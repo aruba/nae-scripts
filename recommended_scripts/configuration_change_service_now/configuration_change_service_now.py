@@ -97,7 +97,7 @@ _Note: The monitored data is plotted in a time-series chart for analysis purpose
         - CLI to show the diff of last checkpoint and running config is executed.
         - CLI to show the diff of start-up config and running config is executed.
         - Shell command to show recent audit logs for configuration changes is executed.
-        - A ticket is posted to the Incident table of ServiceNow®, with the configuration diff, urgency, severity, short description, category (network) and time information
+        - A ticket is posted to the Incident table of ServiceNow, with the configuration diff, urgency, severity, short description, category (network) and time information
 
 _Note: For very large configurations, there is a chance errors occur in the actions of this agent due to NAE resource limitations._
 '''
