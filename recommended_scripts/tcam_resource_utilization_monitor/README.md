@@ -4,7 +4,7 @@ Agent to monitor TCAM utilization and generate alerts when utilization exceeds s
 
 ## Supported Software Versions
 
-Script Version 1.0: ArubaOS-CX 10.13 Minimum, ArubaOS-CX 10.13 Maximum
+Script Version 1.0: ArubaOS-CX 10.13 Minimum
 
 ## Supported Platforms
 

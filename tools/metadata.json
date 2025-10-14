@@ -392,7 +392,7 @@
                 "10000"
             ],
             "minimum_firmware": "10.13",
-            "maximum_firmware": "10.13",
+            "maximum_firmware": null,
             "description": "Agent to monitor TCAM utilization and generate alerts when utilization exceeds specified thresholds",
             "last_modified": "01/31/25 14:24:30",
             "location": "recommended_scripts/tcam_resource_utilization_monitor/tcam_resource_utilization_monitor.py"
