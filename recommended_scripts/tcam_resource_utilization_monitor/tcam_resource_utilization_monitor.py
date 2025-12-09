@@ -47,7 +47,7 @@ Manifest = {
     'Version': '1.0',
     'Author': 'HPE Aruba Networking',
     'AOSCXVersionMin': '10.13',
-    'AOSCXPlatformList': ['8325', '10000']
+    'AOSCXPlatformList': ['8325', '10000', '100X0']
 }
 
 ParameterDefinitions = {

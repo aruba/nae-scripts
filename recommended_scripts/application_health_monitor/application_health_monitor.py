@@ -86,7 +86,7 @@ Manifest = {
     'Tags': ['application'],
     'Author': 'HPE Aruba Networking',
     'AOSCXVersionMin': '10.08',
-    'AOSCXPlatformList': ['5420', '6300', '64xx', '8100', '8320', '8325', '8400', '8360', '9300', '10000']
+    'AOSCXPlatformList': ['5420', '6300', '64xx', '8100', '8320', '8325', '8400', '8360', '9300', '10000', '100X0']
 }
 
 ParameterDefinitions = {
