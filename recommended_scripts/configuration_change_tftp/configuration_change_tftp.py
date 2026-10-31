@@ -250,6 +250,9 @@ class Agent(NAE):
         """
         if tftp_server == "":
             raise Exception("TFTP server address not provided")
+        # Keep only filename-safe characters, so a prefix with spaces or
+        # path/metacharacters cannot split the CLI command or traverse.
+        file_name_prefix = sub('[^A-Za-z0-9_.-]', '_', file_name_prefix)
         file_name = file_name_prefix + str(int(time.time()))
         if tftp_format == 'json':
             file_name += '.json'
